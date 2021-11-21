@@ -12,10 +12,12 @@ module.exports = {
       },
     ],
   },
+  testEnvironment: 'jsdom',
   moduleDirectories: ['node_modules'],
   moduleNameMapper: {
     '^@www/(.+)': '<rootDir>/$1',
-    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/file_mock.js',
+    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/../../__mocks__/image_mock.js',
+    '\\.(css)$': '<rootDir>/../../__mocks__/style_mock.js',
   },
   globals: {
     'esbuild-jest': {

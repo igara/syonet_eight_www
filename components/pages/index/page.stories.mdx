@@ -1,0 +1,23 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Page } from './page';
+
+<Meta title="www/pages" component={Page} />
+
+# syonet_eight_www
+
+URL: /  
+でのページコンポーネント
+
+## サンプル
+
+<Preview withSource="open">
+  <Story name="pages/index">
+    <MemoryRouter>
+      <Page />
+    </MemoryRouter>
+  </Story>
+</Preview>
+
+## プロパティ
+
+<Props of={Page} />
