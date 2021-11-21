@@ -14,7 +14,8 @@ jobs:
         with:
           repository: igara/syonet_eight
           path: syonet_eight
-          submodules: recursive
+          token: ${{ github.token }}
+          submodules: true
       - name: Checkout submodule
         run: |
           git submodule update --init --remote projects/syonet_eight_www
