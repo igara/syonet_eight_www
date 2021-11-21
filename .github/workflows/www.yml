@@ -1,0 +1,38 @@
+name: www
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout syonet_eight
+        uses: actions/checkout@v2
+        with:
+          repository: igara/syonet_eight
+          path: syonet_eight
+          submodules: recursive
+      - name: Checkout submodule
+        run: |
+          git submodule update --init --remote projects/syonet_eight_www
+          (cd projects/syonet_eight_www && git checkout ${{ github.ref_name }})
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: install task
+        run: |
+          yarn
+      - name: lint & test task
+        run: |
+          yarn lint:www
+          yarn test:www
