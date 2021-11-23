@@ -3,13 +3,14 @@ import Image from 'next/image';
 import NextHead from 'next/head';
 import vercelSVG from './vercel.svg';
 import styles from './page.module.css';
-import { Head } from './head';
 
 export const Page = () => {
   return (
     <>
       <NextHead>
-        <Head />
+        <title>syonet</title>
+        <meta name="description" content="syo.igarashiの実験場" />
+        <link rel="icon" href="/favicon.ico" />
       </NextHead>
 
       <div className={styles.container}>
