@@ -4,7 +4,7 @@ see https://github.com/igara/syonet_eight
 
 ## CI VRT Setting
 
-GitHub Repository Settings Environments
+GitHub Repository Settings Secrets
 
 - REG_NOTICE_CLIENT_ID  
   Client ID From Installed GitHub Apps [reg-suit](https://reg-viz.github.io/gh-app/index.html).
