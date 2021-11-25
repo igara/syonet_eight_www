@@ -1,5 +1,6 @@
 import React from 'react';
 import { styles } from './layout.style';
+import { MenuIcon } from 'syonet_eight_design_system';
 
 type Props = {};
 
@@ -10,7 +11,8 @@ export const Layout: React.FC<Props> = (props) => {
 
       <div className="layout">
         <nav>
-          <div>aaaa</div>
+          <MenuIcon />
+          <div>ddd</div>
         </nav>
         <div>
           <header>syonet</header>
