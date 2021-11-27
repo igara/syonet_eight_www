@@ -25,5 +25,6 @@ module.exports = {
       diagnostics: false,
     },
   },
+  snapshotSerializers: ['@emotion/jest/serializer'],
   collectCoverageFrom: ['**/*.{ts|tsx}', '!**/node_modules/**'],
 };
