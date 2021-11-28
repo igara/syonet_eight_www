@@ -1,4 +1,4 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
 import { Page } from './page';
 
 <Meta title="www/pages" component={Page} />
@@ -8,16 +8,10 @@ import { Page } from './page';
 URL: https://syonet.work/  
 でのページコンポーネント
 
-## サンプル
+<Story name="https://syonet.work/"></Story>
 
-<Preview withSource="open">
-  <Story name="pages/index">
-    <MemoryRouter>
-      <Page />
-    </MemoryRouter>
-  </Story>
-</Preview>
+<Source>
+  <Page />
+</Source>
 
-## プロパティ
-
-<Props of={Page} />
+<Props story="https://syonet.work/" />
