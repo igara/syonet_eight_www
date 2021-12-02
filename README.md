@@ -10,11 +10,11 @@ GitHub Repository Settings Secrets
 
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
+- REG_NOTICE_CLIENT_ID  
+  Client ID From Installed GitHub Apps [reg-suit](https://reg-viz.github.io/gh-app/index.html)
+- SLACK_WEBHOOK_URL
 
 ---
-
-REG_NOTICE_CLIENT_ID  
-Client ID From Installed GitHub Apps [reg-suit](https://reg-viz.github.io/gh-app/index.html)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
