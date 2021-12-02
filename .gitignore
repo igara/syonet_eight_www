@@ -6,6 +6,9 @@ node_modules
 .serverless_nextjs
 .pnp
 .pnp.js
+__screenshots__
+.reg
+storybook-static
 
 # testing
 /coverage
