@@ -12,7 +12,7 @@
     "reg-notify-github-plugin": {
       "prComment": true,
       "prCommentBehavior": "default",
-      "clientId": "$REG_NOTICE_CLIENT_ID"
+      "clientId": "MzE2MDQxMjG10C+uzM9LLYlPzUzPKIkvLy/XNzKwMDc1MzfQz0xPLEoEAA=="
     },
     "reg-publish-s3-plugin": {
       "bucketName": "syonet-eight-vrt"
