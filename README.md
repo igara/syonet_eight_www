@@ -20,4 +20,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Datadog setting
 
-https://docs.datadoghq.com/ja/serverless/datadog_lambda_library/nodejs/
+### RUM
+
+https://docs.datadoghq.com/ja/real_user_monitoring/browser/
+
+### Log
+
+https://docs.datadoghq.com/ja/logs/log_collection/javascript/
+https://qiita.com/komtaki/items/a2d3f06e2265e55b0c08
