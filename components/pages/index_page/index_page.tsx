@@ -1,10 +1,11 @@
 import React from 'react';
 import NextHead from 'next/head';
 // import { Layout } from '@www/components/ui/layout';
+// import {  } from 'syonet_eight_design_system';
 
 type Props = {};
 
-export const Page: React.FC<Props> = () => {
+export const IndexPage: React.FC<Props> = () => {
   return (
     <>
       <NextHead>
