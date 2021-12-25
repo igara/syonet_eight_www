@@ -1,17 +1,9 @@
 const path = require('path');
+const mainConfig = require('../../../.storybook/main');
 
 module.exports = {
+  ...mainConfig,
   stories: ['../../**/components/**/*.stories.mdx'],
-  addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-    '@storybook/addon-postcss',
-    'storybook-addon-performance/register',
-  ],
-  typescript: {
-    reactDocgen: false,
-  },
   webpackFinal: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
