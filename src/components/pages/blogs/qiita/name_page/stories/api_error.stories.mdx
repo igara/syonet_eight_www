@@ -1,0 +1,37 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { BlogsQiitaIndexPage } from '../';
+
+<Meta
+  title="www/pages/blogs/qiita/index_page/api_error"
+  component={BlogsQiitaIndexPage}
+  decorators={[withMock]}
+/>
+
+# www/pages/blogs/qiita/index_page/api_error
+
+index_page の説明  
+API エラーのときの表示
+
+<Story
+  name="api_error"
+  args={{
+    size: 20,
+    color: 'black',
+  }}
+  parameters={{
+    mockData: [
+      {
+        url: 'https://api.github.com/repos/igara/qiita-export/contents/data/igara',
+        method: 'GET',
+        status: 500,
+        response: null,
+      },
+    ],
+  }}></Story>
+
+<Source>
+  <BlogsQiitaIndexPage />
+</Source>
+
+<Props story="api_error" />

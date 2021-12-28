@@ -19,14 +19,14 @@ export type QiitaList = {
 }[];
 
 export const useSWRQiitaListFetch = () => {
-  const swrQiita = useSWRByURL<QiitaList, any>(
-    'https://api.github.com/repos/igara/qiita-export/contents/data/igara',
-  );
+  const swrQiita = useSWRByURL<QiitaList, any>({
+    url: 'https://api.github.com/repos/igara/qiita-export/contents/data/igara',
+  });
 
   return swrQiita;
 };
 
-export const useSWRQiitaList = (qiitaList?: QiitaList) => {
+export const useSWRSetQiitaList = (qiitaList?: QiitaList) => {
   const swrQiitaListt = useSWR('USE_SWR_QIITA_LIST', null, {
     fallbackData: qiitaList ? qiitaList.slice().reverse() : [],
   });

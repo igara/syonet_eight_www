@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
-import { useSWRQiitaList, useSWRQiitaListFetch } from '@www/src/hooks';
+import { useSWRSetQiitaList, useSWRQiitaListFetch } from '@www/src/hooks';
 import { APICallResultDialog } from 'syonet_eight_design_system';
 
 interface Props {}
 
 export const QiitaList: React.FC<Props> = () => {
   const swrQiitaListFetch = useSWRQiitaListFetch();
-  const qiitaList = useSWRQiitaList(swrQiitaListFetch.data);
+  const qiitaList = useSWRSetQiitaList(swrQiitaListFetch.data);
 
   return (
     <fieldset>

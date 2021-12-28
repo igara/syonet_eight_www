@@ -1,9 +1,9 @@
 import React from 'react';
 import TestingLibrary from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { useSWRQiitaList } from '../../../';
+import { useSWRSetQiitaList } from '../../../';
 
-describe('use_swr_qiita_list', () => {
+describe('use_swr_set_qiita_list', () => {
   beforeEach(() => {
     jest.resetModules();
   });
@@ -11,7 +11,7 @@ describe('use_swr_qiita_list', () => {
   test('default', async () => {
     const TestComponent = () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      const result = useSWRQiitaList();
+      const result = useSWRSetQiitaList();
 
       return <div>{result.data && JSON.stringify(result.data)}</div>;
     };
@@ -63,7 +63,7 @@ describe('use_swr_qiita_list', () => {
 
     const TestComponent = () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      const result = useSWRQiitaList(apiData);
+      const result = useSWRSetQiitaList(apiData);
 
       return <div>{result.data && JSON.stringify(result.data)}</div>;
     };
