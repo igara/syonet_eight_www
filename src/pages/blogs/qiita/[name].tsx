@@ -34,6 +34,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           ogp: {
             title: name,
             description,
+            path: context.req.url,
           },
         },
       },

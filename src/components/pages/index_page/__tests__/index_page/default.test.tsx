@@ -10,7 +10,7 @@ describe('IndexPage確認', () => {
   test('初期表示', () => {
     const renderTest = TestingLibrary.render(<IndexPage />);
     expect(
-      '<div>すみません、syonet工事中です。<br>工事現場: https://github.com/igara/syonet_eight</div>',
+      '<div>すみません、syonet工事中です。<br>工事現場: <a href="https://github.com/igara/syonet_eight" target="_blank" rel="noreferrer">https://github.com/igara/syonet_eight</a></div>',
     ).toBe(renderTest.baseElement.innerHTML);
   });
 });
