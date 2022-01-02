@@ -1,28 +1,41 @@
 import { Meta, Story, Source, Props } from '@storybook/addon-docs';
 import withMock from 'storybook-addon-mock';
-import { BlogsQiitaIndexPage } from '../';
+import { BlogsQiitaNamePage } from '../';
 
 <Meta
-  title="www/pages/blogs/qiita/index_page/api_error"
-  component={BlogsQiitaIndexPage}
+  title="www/pages/blogs/qiita/name_page/api_error"
+  component={BlogsQiitaNamePage}
   decorators={[withMock]}
 />
 
-# www/pages/blogs/qiita/index_page/api_error
+# www/pages/blogs/qiita/name_page/api_error
 
-index_page の説明  
+name_page の説明  
 API エラーのときの表示
 
 <Story
   name="api_error"
   args={{
-    size: 20,
-    color: 'black',
+    ssr: {
+      qiitaDetailData: 'qiitaDetailData',
+      ogp: {
+        title: 'ogpTitle',
+        description: 'ogpDescription',
+        path: '/blogs/qiita/aaaaaaa',
+      },
+    },
   }}
   parameters={{
+    nextRouter: {
+      path: '/blogs/qiita/[name]',
+      asPath: '/blogs/qiita/aaaaaaa',
+      query: {
+        name: 'aaaaaaa',
+      },
+    },
     mockData: [
       {
-        url: 'https://api.github.com/repos/igara/qiita-export/contents/data/igara',
+        url: 'https://raw.githubusercontent.com/igara/qiita-export/master/data/igara/aaaaaaa/README.html',
         method: 'GET',
         status: 500,
         response: null,
@@ -31,7 +44,7 @@ API エラーのときの表示
   }}></Story>
 
 <Source>
-  <BlogsQiitaIndexPage />
+  <BlogsQiitaNamePage />
 </Source>
 
 <Props story="api_error" />

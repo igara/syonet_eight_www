@@ -22,9 +22,7 @@ describe('use_swr_qiita_list_fetch', () => {
 
     const TestComponent = () => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      const result = useSWRQiitaDetailFetch(
-        '2015-10-11 18-51-31-[メモ]Vagrantを使ってVMを起動する',
-      );
+      const result = useSWRQiitaDetailFetch('hoge');
 
       return <div>{result.data}</div>;
     };

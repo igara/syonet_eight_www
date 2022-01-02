@@ -1,5 +1,6 @@
 import React from 'react';
 import NextHead from 'next/head';
+import { QiitaList } from './parts';
 
 type Props = {};
 
@@ -17,6 +18,7 @@ export const IndexPage: React.FC<Props> = () => {
       <a href="https://github.com/igara/syonet_eight" target="_blank" rel="noreferrer">
         https://github.com/igara/syonet_eight
       </a>
+      <QiitaList />
     </>
   );
 };
