@@ -1,7 +1,6 @@
 import React from 'react';
 import NextHead from 'next/head';
-// import { Layout } from '@www/components/ui/layout';
-// import {  } from 'syonet_eight_design_system';
+import { QiitaList } from './parts';
 
 type Props = {};
 
@@ -15,8 +14,11 @@ export const IndexPage: React.FC<Props> = () => {
       </NextHead>
       すみません、syonet工事中です。
       <br />
-      工事現場: https://github.com/igara/syonet_eight
-      {/* <Layout>aaa</Layout> */}
+      工事現場:{' '}
+      <a href="https://github.com/igara/syonet_eight" target="_blank" rel="noreferrer">
+        https://github.com/igara/syonet_eight
+      </a>
+      <QiitaList />
     </>
   );
 };

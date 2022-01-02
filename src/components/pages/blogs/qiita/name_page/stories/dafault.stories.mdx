@@ -1,0 +1,49 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { BlogsQiitaNamePage } from '../';
+
+<Meta
+  title="www/pages/blogs/qiita/name_page/default"
+  component={BlogsQiitaNamePage}
+  decorators={[withMock]}
+/>
+
+# www/pages/blogs/qiita/name_page/default
+
+name_page の説明
+
+<Story
+  name="default"
+  args={{
+    ssr: {
+      qiitaDetailData: 'qiitaDetailData',
+      ogp: {
+        title: 'ogpTitle',
+        description: 'ogpDescription',
+        path: '/blogs/qiita/aaaaaaa',
+      },
+    },
+  }}
+  parameters={{
+    nextRouter: {
+      path: '/blogs/qiita/[name]',
+      asPath: '/blogs/qiita/aaaaaaa',
+      query: {
+        name: 'aaaaaaa',
+      },
+    },
+    mockData: [
+      {
+        url: 'https://raw.githubusercontent.com/igara/qiita-export/master/data/igara/aaaaaaa/README.html',
+        method: 'GET',
+        status: 200,
+        response: null,
+      },
+    ],
+  }}></Story>
+
+<Source>
+  <BlogsQiitaNamePage />
+</Source>
+
+<Props story="default" />
