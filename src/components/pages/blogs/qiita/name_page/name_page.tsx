@@ -36,7 +36,7 @@ export const NamePage: React.FC<Props> = (props) => {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content={`${process.env.NEXT_PUBLIC_HTTP_OGP_HOST}/www?path=${props.ssr.ogp.path}&width=1200&height=630`}
+          content={`${process.env.NEXT_PUBLIC_HTTP_OGP_HOST}/api/www?path=${props.ssr.ogp.path}&width=1200&height=630`}
         />
         <meta
           property="og:image"
