@@ -1,0 +1,34 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { HatenaList } from '../';
+
+<Meta
+  title="www/pages/blogs/hatena/index_page/parts/hatena_list/api_error"
+  component={HatenaList}
+  decorators={[withMock]}
+/>
+
+# www/pages/blogs/hatena/index_page/parts/hatena_list/api_error
+
+hatena_list の説明  
+API エラーの表示
+
+<Story
+  name="api_error"
+  args={{}}
+  parameters={{
+    mockData: [
+      {
+        url: 'https://api.github.com/repos/igara/hatenablog-export/contents/data/igara1119',
+        method: 'GET',
+        status: 500,
+        response: null,
+      },
+    ],
+  }}></Story>
+
+<Source>
+  <HatenaList />
+</Source>
+
+<Props story="api_error" />

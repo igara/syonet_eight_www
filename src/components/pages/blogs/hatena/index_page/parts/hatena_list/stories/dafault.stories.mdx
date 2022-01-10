@@ -1,0 +1,54 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { HatenaList } from '../';
+
+<Meta
+  title="www/pages/blogs/hatena/index_page/parts/hatena_list/default"
+  component={HatenaList}
+  decorators={[withMock]}
+/>
+
+# www/pages/blogs/hatena/index_page/parts/hatena_list/default
+
+hatena_list の説明  
+1 件のみの表示
+
+<Story
+  name="default"
+  args={{}}
+  parameters={{
+    mockData: [
+      {
+        url: 'https://api.github.com/repos/igara/hatenablog-export/contents/data/igara1119',
+        method: 'GET',
+        status: 200,
+        response: [
+          {
+            name: '2017-09-03 00-00-00 OSC Chiba 2017 Fall レポート的な何か',
+            path: 'data/igara1119/2017-09-03 00-00-00 OSC Chiba 2017 Fall レポート的な何か',
+            sha: 'a1d6d5d87e5fd6c9ca320d62ef875cfee1ac57a6',
+            size: 0,
+            url: 'https://api.github.com/repos/igara/hatenablog-export/contents/data/igara1119/2017-09-03%2000-00-00%20OSC%20Chiba%202017%20Fall%20%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E7%9A%84%E3%81%AA%E4%BD%95%E3%81%8B?ref=master',
+            html_url:
+              'https://github.com/igara/hatenablog-export/tree/master/data/igara1119/2017-09-03%2000-00-00%20OSC%20Chiba%202017%20Fall%20%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E7%9A%84%E3%81%AA%E4%BD%95%E3%81%8B',
+            git_url:
+              'https://api.github.com/repos/igara/hatenablog-export/git/trees/a1d6d5d87e5fd6c9ca320d62ef875cfee1ac57a6',
+            download_url: null,
+            type: 'dir',
+            _links: {
+              self: 'https://api.github.com/repos/igara/hatenablog-export/contents/data/igara1119/2017-09-03%2000-00-00%20OSC%20Chiba%202017%20Fall%20%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E7%9A%84%E3%81%AA%E4%BD%95%E3%81%8B?ref=master',
+              git: 'https://api.github.com/repos/igara/hatenablog-export/git/trees/a1d6d5d87e5fd6c9ca320d62ef875cfee1ac57a6',
+              html: 'https://github.com/igara/hatenablog-export/tree/master/data/igara1119/2017-09-03%2000-00-00%20OSC%20Chiba%202017%20Fall%20%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88%E7%9A%84%E3%81%AA%E4%BD%95%E3%81%8B',
+            },
+          },
+        ],
+      },
+    ],
+
+}}></Story>
+
+<Source>
+  <HatenaList />
+</Source>
+
+<Props story="default" />

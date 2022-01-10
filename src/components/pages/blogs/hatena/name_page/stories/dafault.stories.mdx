@@ -1,0 +1,49 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { BlogsHatenaNamePage } from '../';
+
+<Meta
+  title="www/pages/blogs/hatena/name_page/default"
+  component={BlogsHatenaNamePage}
+  decorators={[withMock]}
+/>
+
+# www/pages/blogs/hatena/name_page/default
+
+name_page の説明
+
+<Story
+  name="default"
+  args={{
+    ssr: {
+      hatenaDetailData: 'hatenaDetailData',
+      ogp: {
+        title: 'ogpTitle',
+        description: 'ogpDescription',
+        path: '/blogs/hatena/aaaaaaa',
+      },
+    },
+  }}
+  parameters={{
+    nextRouter: {
+      path: '/blogs/hatena/[name]',
+      asPath: '/blogs/hatena/aaaaaaa',
+      query: {
+        name: 'aaaaaaa',
+      },
+    },
+    mockData: [
+      {
+        url: 'https://raw.githubusercontent.com/igara/hatenablog-export/master/data/igara1119/aaaaaaa/README.html',
+        method: 'GET',
+        status: 200,
+        response: null,
+      },
+    ],
+  }}></Story>
+
+<Source>
+  <BlogsHatenaNamePage />
+</Source>
+
+<Props story="default" />
