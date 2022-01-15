@@ -1,10 +1,10 @@
 import type { NextPage, GetServerSideProps } from 'next';
-import { BlogsHatenaNamePage, BlogsHatenaNamePageProps } from '@www/src/components';
-import { getHatenaDetailURL } from '@www/src/hooks';
+import { BlogsQiitaNamePage, BlogsQiitaNamePageProps } from '@www/src/components';
+import { getQiitaDetailURL } from '@www/src/hooks';
 import { fetcher } from 'syonet_eight_design_system';
 
-const BlogsHatenaName: NextPage<BlogsHatenaNamePageProps> = (props) => {
-  return <BlogsHatenaNamePage {...props} />;
+const BlogsQiitaName: NextPage<BlogsQiitaNamePageProps> = (props) => {
+  return <BlogsQiitaNamePage {...props} />;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -16,12 +16,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   try {
-    const hatenaDetailURL = getHatenaDetailURL(name);
-    const hatenaDetailData = (await fetcher({
-      url: hatenaDetailURL,
+    const qiitaDetailURL = getQiitaDetailURL(name);
+    const qiitaDetailData = (await fetcher({
+      url: qiitaDetailURL,
       type: 'text',
     })) as string;
-    const description = hatenaDetailData
+    const description = qiitaDetailData
       .replace(/\n/g, '')
       .replace(/<style>.+<\/style>/g, '')
       .replace(/<(".*?"|'.*?'|[^'"])*?>/g, '')
@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return {
       props: {
         ssr: {
-          hatenaDetailData,
+          qiitaDetailData,
           ogp: {
             title: name,
             description,
@@ -46,4 +46,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
-export default BlogsHatenaName;
+export default BlogsQiitaName;

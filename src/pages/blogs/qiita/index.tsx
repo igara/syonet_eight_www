@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import { BlogsHatenaIndexPage } from '@www/src/components';
+import { BlogsQiitaIndexPage } from '@www/src/components';
 
 const BlogsHatenaIndex: NextPage = () => {
-  return <BlogsHatenaIndexPage />;
+  return <BlogsQiitaIndexPage />;
 };
 
 export default BlogsHatenaIndex;
