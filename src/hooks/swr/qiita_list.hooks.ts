@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import { useSWRByURL } from 'syonet_eight_design_system';
+import * as Variables from 'syonet_eight_variables';
 
 export type QiitaList = {
   name: string;
@@ -20,7 +21,7 @@ export type QiitaList = {
 
 export const useSWRQiitaListFetch = () => {
   const swrQiita = useSWRByURL<QiitaList, any>({
-    url: 'https://api.github.com/repos/igara/qiita-export/contents/data/igara',
+    url: Variables.backupQiitaListURI,
   });
 
   return swrQiita;

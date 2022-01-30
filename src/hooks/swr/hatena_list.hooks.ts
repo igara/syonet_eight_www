@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import { useSWRByURL } from 'syonet_eight_design_system';
+import * as Variables from 'syonet_eight_variables';
 
 export type HatenaList = {
   name: string;
@@ -20,7 +21,7 @@ export type HatenaList = {
 
 export const useSWRHatenaListFetch = () => {
   const swrQiita = useSWRByURL<HatenaList, any>({
-    url: 'https://api.github.com/repos/igara/hatenablog-export/contents/data/igara1119',
+    url: Variables.backupHatenaListURI,
   });
 
   return swrQiita;

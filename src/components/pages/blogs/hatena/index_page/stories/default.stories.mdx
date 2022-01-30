@@ -1,6 +1,7 @@
 import { Meta, Story, Source, Props } from '@storybook/addon-docs';
 import withMock from 'storybook-addon-mock';
 import { BlogsHatenaIndexPage } from '../';
+import * as Variables from 'syonet_eight_variables';
 
 <Meta
   title="www/pages/blogs/hatena/index_page/default"
@@ -18,7 +19,7 @@ index_page の説明
   parameters={{
     mockData: [
       {
-        url: 'https://api.github.com/repos/igara/hatenablog-export/contents/data/igara1119',
+        url: Variables.backupHatenaListURI,
         method: 'GET',
         status: 200,
         response: [
