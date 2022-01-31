@@ -1,9 +1,8 @@
 import { useSWRByURL } from 'syonet_eight_design_system';
+import * as Variables from 'syonet_eight_variables';
 
 export const getHatenaDetailURL = (hatenaPostTitle: string) => {
-  return encodeURI(
-    `https://raw.githubusercontent.com/igara/hatenablog-export/master/data/igara1119/${hatenaPostTitle}/README.html`,
-  );
+  return encodeURI(Variables.backupHatenaDetailtURI(hatenaPostTitle));
 };
 
 export const useSWRHatenaDetailFetch = (hatenaPostTitle: string) => {

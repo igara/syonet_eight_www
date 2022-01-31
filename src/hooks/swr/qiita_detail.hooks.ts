@@ -1,9 +1,8 @@
 import { useSWRByURL } from 'syonet_eight_design_system';
+import * as Variables from 'syonet_eight_variables';
 
 export const getQiitaDetailURL = (qiitaPostTitle: string) => {
-  return encodeURI(
-    `https://raw.githubusercontent.com/igara/qiita-export/master/data/igara/${qiitaPostTitle}/README.html`,
-  );
+  return encodeURI(Variables.backupQiitaDetailtURI(qiitaPostTitle));
 };
 
 export const useSWRQiitaDetailFetch = (qiitaPostTitle: string) => {
