@@ -1,0 +1,31 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { SearchPage } from '../';
+
+<Meta
+  title="www/ui/layout/parts/header/parts/search_page/default"
+  component={SearchPage}
+  decorators={[withMock]}
+/>
+
+# www/ui/layout/parts/header/parts/search_page/default
+
+search_page の説明
+
+<Story
+  name="default"
+  args={{}}
+  parameters={{
+    nextRouter: {
+      path: '',
+      asPath: '',
+      query: {},
+    },
+    mockData: [],
+  }}></Story>
+
+<Source>
+  <SearchPage />
+</Source>
+
+<Props story="default" />

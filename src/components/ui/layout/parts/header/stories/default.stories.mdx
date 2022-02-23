@@ -1,0 +1,27 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { Header } from '../';
+
+<Meta title="www/ui/layout/parts/header/default" component={Header} decorators={[withMock]} />
+
+# www/ui/layout/parts/header/default
+
+header の説明
+
+<Story
+  name="default"
+  args={{}}
+  parameters={{
+    nextRouter: {
+      path: '',
+      asPath: '',
+      query: {},
+    },
+    mockData: [],
+  }}></Story>
+
+<Source>
+  <Header />
+</Source>
+
+<Props story="default" />

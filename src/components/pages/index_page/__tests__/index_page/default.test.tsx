@@ -42,7 +42,7 @@ describe('IndexPage確認', () => {
 
     const renderTest = TestingLibrary.render(<IndexPage />);
     expect(
-      '<div>すみません、syonet工事中です。<br>工事現場: <a href="https://github.com/igara/syonet_eight" target="_blank" rel="noreferrer">https://github.com/igara/syonet_eight</a><fieldset><legend>Qiita記事 (<a href="https://qiita.com/igara" target="_blank" rel="noopener noreferrer">公式</a> / <a href="/blogs/qiita">バックアップ</a>)</legend></fieldset></div>',
+      '<div><div css="You have tried to stringify object returned from `css` function. It isn\'t supposed to be used directly (e.g. as value of the `className` prop), but rather handed to emotion so it can handle it (e.g. as value of `css` prop)."><header><div class="css-118r9s0"><input type="search" placeholder="ページ検索" readonly="" class="css-1rjs02b" value=""></div></header><div><main>すみません、syonet工事中です。<br>工事現場: <a href="https://github.com/igara/syonet_eight" target="_blank" rel="noreferrer">https://github.com/igara/syonet_eight</a><fieldset><legend>Qiita記事 (<a href="https://qiita.com/igara" target="_blank" rel="noopener noreferrer">公式</a> / <a href="/blogs/qiita">バックアップ</a>)</legend></fieldset></main><footer>© syonet.work. All Rights Reserved.</footer></div></div></div>',
     ).toBe(renderTest.baseElement.innerHTML);
   });
 });
