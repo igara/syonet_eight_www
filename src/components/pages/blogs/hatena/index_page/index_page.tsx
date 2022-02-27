@@ -1,6 +1,7 @@
 import React from 'react';
 import NextHead from 'next/head';
 import { HatenaList } from './parts';
+import { Layout } from '@www/src/components';
 
 interface Props {}
 
@@ -13,7 +14,9 @@ export const IndexPage: React.FC<Props> = () => {
         <link rel="icon" href="/favicon.ico" />
       </NextHead>
 
-      <HatenaList />
+      <Layout>
+        <HatenaList />
+      </Layout>
     </>
   );
 };

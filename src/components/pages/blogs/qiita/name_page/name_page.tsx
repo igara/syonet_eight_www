@@ -3,6 +3,7 @@ import NextHead from 'next/head';
 import { useSWRQiitaDetailFetch } from '@www/src/hooks';
 import { APICallResultDialog } from 'syonet_eight_design_system';
 import { useRouter } from 'next/router';
+import { Layout } from '@www/src/components';
 
 export type Props = {
   ssr: {
@@ -47,11 +48,13 @@ export const NamePage: React.FC<Props> = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </NextHead>
 
-      {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
+      <Layout>
+        {html && <div dangerouslySetInnerHTML={{ __html: html }} />}
 
-      {swrQiitaListFetch.error && (
-        <APICallResultDialog error="GitHubからQiitaの投稿を取得するのに失敗しました" />
-      )}
+        {swrQiitaListFetch.error && (
+          <APICallResultDialog error="GitHubからQiitaの投稿を取得するのに失敗しました" />
+        )}
+      </Layout>
     </>
   );
 };
