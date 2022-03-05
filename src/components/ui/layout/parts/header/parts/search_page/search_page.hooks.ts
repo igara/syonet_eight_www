@@ -4,6 +4,17 @@ export const useDisplaySearchPageDialogState = (flag: boolean) => {
   return React.useState(flag);
 };
 
+export const useHitsPerPageValueState = (value: string) => {
+  return React.useState(Number.parseInt(value));
+};
+export const useHitsPerPageLabelState = (label: string) => {
+  return React.useState(label);
+};
+
+export const usePaginationValueState = (value: number) => {
+  return React.useState(value);
+};
+
 export const useOnClickSearchPageTextCallback = (
   setDisplaySearchPageDialog: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
