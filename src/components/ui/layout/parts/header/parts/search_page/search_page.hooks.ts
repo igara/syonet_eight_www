@@ -34,3 +34,30 @@ export const useOnChangeSearchPageTextCallback = (
     setSearchPageText(true);
   }, [setSearchPageText]);
 };
+
+export const useRefinementCheckListState = () => {
+  return React.useState<string[]>([]);
+};
+
+type UseOnCheckRefinementListCallbackProps = {
+  setRefinementCheckList: (value: React.SetStateAction<string[]>) => void;
+  refinementCheckList: string[];
+};
+export const useOnCheckRefinementListCallback = (
+  props: UseOnCheckRefinementListCallbackProps,
+) => {
+  return React.useCallback(
+    (checked: boolean, value: string) => {
+      if (checked) {
+        props.setRefinementCheckList([...props.refinementCheckList, value]);
+      } else {
+        props.setRefinementCheckList(
+          props.refinementCheckList.filter((label) => {
+            return label !== value;
+          }),
+        );
+      }
+    },
+    [props],
+  );
+};

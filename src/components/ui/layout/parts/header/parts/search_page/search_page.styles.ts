@@ -1,15 +1,28 @@
-import * as CSS from 'csstype';
 import { css } from '@emotion/react';
-
-export interface Props {
-  size: number;
-  color: CSS.Property.Color;
-}
+import { mediaQueryBreakpoints } from 'syonet_eight_design_system';
 
 export const styles = {
-  search_page: (props: Props) => css`
-    width: ${props.size}px;
-    height: ${props.size}px;
-    color: ${props.color};
+  dialogContent: () => css`
+    width: 80%;
+    height: 80%;
+
+    ${mediaQueryBreakpoints.small} {
+      width: 60%;
+      height: 60%;
+    }
+  `,
+  hits: () => css`
+    height: calc(100% - 180px);
+    overflow: scroll;
+  `,
+  pageDetail: () => css`
+    display: flex;
+  `,
+  image: () => css`
+    cursor: pointer;
+  `,
+  pageDetailTextArea: () => css`
+    padding: 8px;
+    width: 100%;
   `,
 };

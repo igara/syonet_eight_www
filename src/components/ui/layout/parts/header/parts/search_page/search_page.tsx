@@ -5,13 +5,20 @@ import algoliasearch from 'algoliasearch/lite';
 import {
   InstantSearch,
   connectSearchBox,
-  Hits,
+  connectHits,
   connectHitsPerPage,
   connectRefinementList,
   connectPagination,
 } from 'react-instantsearch-dom';
 import Link from 'next/link';
-import { Text, StandardDialog, Select, NumberArea } from 'syonet_eight_design_system';
+import Image from 'next/image';
+import {
+  Text,
+  StandardDialog,
+  Select,
+  NumberArea,
+  Check,
+} from 'syonet_eight_design_system';
 
 interface Props {}
 
@@ -39,10 +46,12 @@ export const SearchPage: React.FC<Props> = (props) => {
   const [hitsPerPageValue, setHitsPerPageValue] = Hooks.useHitsPerPageValueState(
     defaultItem.value,
   );
-  const [hitsPerPageLabel, setHitsPerPageLabel] = Hooks.useHitsPerPageLabelState(
+  const [_hitsPerPageLabel, setHitsPerPageLabel] = Hooks.useHitsPerPageLabelState(
     defaultItem.label,
   );
   const [paginationValue, setPaginationValue] = Hooks.usePaginationValueState(1);
+  const [refinementCheckList, setRefinementCheckList] =
+    Hooks.useRefinementCheckListState();
 
   const onChangeSelect = React.useCallback(
     (event: any) => {
@@ -73,17 +82,62 @@ export const SearchPage: React.FC<Props> = (props) => {
     return <></>;
   });
 
+  const Hits = connectHits(({ hits }) => {
+    return (
+      <div css={Styles.styles.hits()}>
+        {hits.map((hit) => {
+          return (
+            <div key={hit.objectID} css={Styles.styles.pageDetail()}>
+              <Link href={hit.nextLink} passHref>
+                <div css={Styles.styles.image()}>
+                  <Image
+                    src={hit.ogp}
+                    width={128}
+                    height={128}
+                    alt={hit.title}
+                    objectFit="cover"
+                    layout="fixed"
+                  />
+                </div>
+              </Link>
+              <div css={Styles.styles.pageDetailTextArea()}>
+                <div>
+                  <Link href={hit.nextLink} passHref>
+                    {hit.title}
+                  </Link>
+                </div>
+                <div>{hit.description}...</div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  });
+
   const HitsPerPage = connectHitsPerPage(() => {
     return <></>;
   });
 
+  const onCheckRefinementListCallback = Hooks.useOnCheckRefinementListCallback({
+    setRefinementCheckList,
+    refinementCheckList,
+  });
   const RefinementList = connectRefinementList(({ items }) => {
     return (
       <div>
         {items.map((item) => {
+          const checked = refinementCheckList.includes(item.label);
           return (
             <div key={item.label}>
-              {item.label} {item.count}
+              <Check
+                defaultChecked={checked}
+                value={item.label}
+                onClick={(checked, value) => {
+                  onCheckRefinementListCallback(checked, value);
+                }}>
+                {item.label} {item.count}
+              </Check>
             </div>
           );
         })}
@@ -114,7 +168,8 @@ export const SearchPage: React.FC<Props> = (props) => {
       {displaySearchPageDialog && (
         <StandardDialog
           isOpen={displaySearchPageDialog}
-          onClose={() => setDisplaySearchPageDialog(false)}>
+          onClose={() => setDisplaySearchPageDialog(false)}
+          contentCSS={Styles.styles.dialogContent()}>
           <Text
             placeholder="ページ検索"
             onChange={(e) => setSearchPageText(e.target.value)}
@@ -127,13 +182,13 @@ export const SearchPage: React.FC<Props> = (props) => {
 
             <SearchBox defaultRefinement={searchPageText} />
 
-            {/* <RefinementList attribute="tags" defaultRefinement={[]} /> */}
-
-            <Hits
-              hitComponent={({ hit }) => {
-                return <Link href={hit.nextLink}>{hit.title}</Link>;
-              }}
+            <RefinementList
+              attribute="tags"
+              operator="and"
+              defaultRefinement={refinementCheckList}
             />
+
+            <Hits />
 
             <Pagination defaultRefinement={paginationValue}></Pagination>
           </InstantSearch>
