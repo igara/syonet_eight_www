@@ -4,4 +4,7 @@ module.exports = {
   images: {
     domains: ['ogp.syonet.work', 'localhost'],
   },
+  experimental: {
+    optimizeFonts: true,
+  },
 };
