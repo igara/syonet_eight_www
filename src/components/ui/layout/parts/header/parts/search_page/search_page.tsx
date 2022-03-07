@@ -123,7 +123,7 @@ export const SearchPage: React.FC<Props> = (props) => {
         {items.map((item) => {
           const checked = refinementCheckList.includes(item.label);
           return (
-            <div key={item.label}>
+            <div key={item.objectID}>
               <Check
                 defaultChecked={checked}
                 value={item.label}
@@ -149,6 +149,8 @@ export const SearchPage: React.FC<Props> = (props) => {
       />
     );
   });
+
+  const isSearchResult = searchPageText || refinementCheckList.length > 0;
 
   return (
     <>
@@ -182,9 +184,14 @@ export const SearchPage: React.FC<Props> = (props) => {
               defaultRefinement={refinementCheckList}
             />
 
-            <Hits />
-
-            <Pagination defaultRefinement={paginationValue}></Pagination>
+            {isSearchResult ? (
+              <>
+                <Hits />
+                <Pagination defaultRefinement={paginationValue}></Pagination>
+              </>
+            ) : (
+              <></>
+            )}
           </InstantSearch>
         </StandardDialog>
       )}
