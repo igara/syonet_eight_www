@@ -93,12 +93,14 @@ export const SearchPage: React.FC<Props> = (props) => {
                 </div>
               </Link>
               <div css={Styles.styles.pageDetailTextArea()}>
-                <div>
+                <div css={Styles.styles.pageDetailTextAreaTitle()}>
                   <Link href={hit.nextLink} passHref>
                     {hit.title}
                   </Link>
                 </div>
-                <div>{hit.description}...</div>
+                <div css={Styles.styles.pageDetailTextAreaDescription()}>
+                  {hit.description}...
+                </div>
               </div>
             </div>
           );

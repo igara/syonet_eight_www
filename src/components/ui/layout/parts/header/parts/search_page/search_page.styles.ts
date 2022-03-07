@@ -25,4 +25,10 @@ export const styles = {
     padding: 8px;
     width: 100%;
   `,
+  pageDetailTextAreaTitle: () => css`
+    font-size: 16px;
+  `,
+  pageDetailTextAreaDescription: () => css`
+    font-size: 16px;
+  `,
 };
