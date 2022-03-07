@@ -11,7 +11,6 @@ import {
   connectPagination,
 } from 'react-instantsearch-dom';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
   Text,
   StandardDialog,
@@ -90,14 +89,7 @@ export const SearchPage: React.FC<Props> = (props) => {
             <div key={hit.objectID} css={Styles.styles.pageDetail()}>
               <Link href={hit.nextLink} passHref>
                 <div css={Styles.styles.image()}>
-                  <Image
-                    src={hit.ogp}
-                    width={128}
-                    height={128}
-                    alt={hit.title}
-                    objectFit="cover"
-                    layout="fixed"
-                  />
+                  <img src={hit.ogp} width={128} height={128} alt={hit.title} />
                 </div>
               </Link>
               <div css={Styles.styles.pageDetailTextArea()}>
