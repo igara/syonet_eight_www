@@ -19,6 +19,9 @@ export const styles = {
     display: flex;
   `,
   image: () => css`
+    width: 128px;
+    height: 128px;
+    aspect-ratio: auto 128 / 128;
     cursor: pointer;
   `,
   pageDetailTextArea: () => css`

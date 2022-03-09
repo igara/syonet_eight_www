@@ -15,6 +15,10 @@ export const usePaginationValueState = (value: number) => {
   return React.useState(value);
 };
 
+export const useIsDisplayRefinementListState = (flag: boolean) => {
+  return React.useState(flag);
+};
+
 export const useOnClickSearchPageTextCallback = (
   setDisplaySearchPageDialog: React.Dispatch<React.SetStateAction<boolean>>,
 ) => {
@@ -42,6 +46,7 @@ export const useRefinementCheckListState = () => {
 type UseOnCheckRefinementListCallbackProps = {
   setRefinementCheckList: (value: React.SetStateAction<string[]>) => void;
   refinementCheckList: string[];
+  setIsDisplayRefinementList: (value: React.SetStateAction<boolean>) => void;
 };
 export const useOnCheckRefinementListCallback = (
   props: UseOnCheckRefinementListCallbackProps,
@@ -57,7 +62,20 @@ export const useOnCheckRefinementListCallback = (
           }),
         );
       }
+
+      props.setIsDisplayRefinementList(true);
     },
     [props],
   );
+};
+
+type UseOnDisableRefinementListCallbackProps = {
+  setIsDisplayRefinementList: (value: React.SetStateAction<boolean>) => void;
+};
+export const useOnDisableRefinementListCallback = (
+  props: UseOnDisableRefinementListCallbackProps,
+) => {
+  return React.useCallback(() => {
+    props.setIsDisplayRefinementList(false);
+  }, [props]);
 };

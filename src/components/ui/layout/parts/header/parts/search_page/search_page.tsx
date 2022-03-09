@@ -17,6 +17,7 @@ import {
   Select,
   NumberArea,
   Check,
+  MultiSelect,
 } from 'syonet_eight_design_system';
 
 interface Props {}
@@ -51,6 +52,8 @@ export const SearchPage: React.FC<Props> = (props) => {
   const [paginationValue, setPaginationValue] = Hooks.usePaginationValueState(1);
   const [refinementCheckList, setRefinementCheckList] =
     Hooks.useRefinementCheckListState();
+  const [isDisplayRefinementList, setIsDisplayRefinementList] =
+    Hooks.useIsDisplayRefinementListState(false);
 
   const onChangeSelect = React.useCallback(
     (event: any) => {
@@ -116,25 +119,28 @@ export const SearchPage: React.FC<Props> = (props) => {
   const onCheckRefinementListCallback = Hooks.useOnCheckRefinementListCallback({
     setRefinementCheckList,
     refinementCheckList,
+    setIsDisplayRefinementList,
+  });
+  const onDisableRefinementListCallback = Hooks.useOnDisableRefinementListCallback({
+    setIsDisplayRefinementList,
   });
   const RefinementList = connectRefinementList(({ items }) => {
     return (
       <div>
-        {items.map((item) => {
-          const checked = refinementCheckList.includes(item.label);
-          return (
-            <div key={item.objectID}>
-              <Check
-                defaultChecked={checked}
-                value={item.label}
-                onClick={(checked, value) => {
-                  onCheckRefinementListCallback(checked, value);
-                }}>
-                {item.label} {item.count}
-              </Check>
-            </div>
-          );
-        })}
+        <MultiSelect
+          items={items.map((item) => ({
+            label: item.label,
+            value: item.label,
+            selected: refinementCheckList.includes(item.label),
+            onClick: (checked, value) => {
+              onCheckRefinementListCallback(checked, value);
+            },
+          }))}
+          isDisplay={isDisplayRefinementList}
+          onDisable={() => {
+            onDisableRefinementListCallback();
+          }}
+          selectName="検索タグを選択"></MultiSelect>
       </div>
     );
   });
