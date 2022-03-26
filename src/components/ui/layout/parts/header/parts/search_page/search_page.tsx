@@ -16,8 +16,8 @@ import {
   StandardDialog,
   Select,
   NumberArea,
-  Check,
   MultiSelect,
+  ProgressImage,
 } from 'syonet_eight_design_system';
 
 interface Props {}
@@ -92,7 +92,7 @@ export const SearchPage: React.FC<Props> = (props) => {
             <div key={hit.objectID} css={Styles.styles.pageDetail()}>
               <Link href={hit.nextLink} passHref>
                 <div css={Styles.styles.image()}>
-                  <img src={hit.ogp} width={128} height={128} alt={hit.title} />
+                  <ProgressImage src={hit.ogp} alt={hit.title}></ProgressImage>
                 </div>
               </Link>
               <div css={Styles.styles.pageDetailTextArea()}>

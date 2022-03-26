@@ -23,6 +23,11 @@ export const styles = {
     height: 128px;
     aspect-ratio: auto 128 / 128;
     cursor: pointer;
+
+    div {
+      width: 128px;
+      height: 128px;
+    }
   `,
   pageDetailTextArea: () => css`
     padding: 8px;
