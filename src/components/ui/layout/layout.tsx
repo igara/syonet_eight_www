@@ -1,6 +1,6 @@
 import React from 'react';
 import { styles } from './layout.styles';
-import { Header } from './parts';
+import { Header, Profile } from './parts';
 import { Global } from '@emotion/react';
 
 type Props = {};
@@ -13,10 +13,14 @@ export const Layout: React.FC<Props> = (props) => {
       <div css={styles.layout()}>
         <Header />
 
-        <div>
-          <main>{props.children}</main>
-          <footer>© syonet.work. All Rights Reserved.</footer>
+        <div css={styles.content()}>
+          <main css={styles.main()}>{props.children}</main>
+          <div css={styles.profile()}>
+            <Profile />
+          </div>
         </div>
+
+        <footer>© syonet.work. All Rights Reserved.</footer>
       </div>
     </>
   );

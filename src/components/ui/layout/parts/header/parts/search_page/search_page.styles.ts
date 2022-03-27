@@ -17,6 +17,7 @@ export const styles = {
   `,
   pageDetail: () => css`
     display: flex;
+    padding-top: 8px;
   `,
   image: () => css`
     width: 128px;

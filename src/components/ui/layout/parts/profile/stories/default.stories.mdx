@@ -1,0 +1,27 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { Profile } from '../';
+
+<Meta title="www/ui/layout/parts/profile/default" component={Profile} decorators={[withMock]} />
+
+# www/ui/layout/parts/profile/default
+
+profile の説明
+
+<Story
+  name="default"
+  args={{}}
+  parameters={{
+    nextRouter: {
+      path: '',
+      asPath: '',
+      query: {},
+    },
+    mockData: [],
+  }}></Story>
+
+<Source>
+  <Profile />
+</Source>
+
+<Props story="default" />
