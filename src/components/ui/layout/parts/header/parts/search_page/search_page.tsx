@@ -196,7 +196,13 @@ export const SearchPage: React.FC<Props> = (props) => {
                 <Pagination defaultRefinement={paginationValue}></Pagination>
               </>
             ) : (
-              <></>
+              <ul>
+                <li>
+                  <Link href="/" passHref>
+                    トップページ
+                  </Link>
+                </li>
+              </ul>
             )}
           </InstantSearch>
         </StandardDialog>
