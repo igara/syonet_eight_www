@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
 import { mediaQueryBreakpoints } from 'syonet_eight_design_system';
 
+type Profile = {
+  isSPProfileDetail: boolean;
+};
 export const styles = {
   global: () => css`
     body {
@@ -14,6 +17,7 @@ export const styles = {
     flex-direction: column;
   `,
   content: () => css`
+    position: relative;
     display: flex;
     flex-direction: column;
 
@@ -24,11 +28,11 @@ export const styles = {
   main: () => css`
     width: 100%;
   `,
-  profile: () => css`
+  profile: (props: Profile) => css`
     width: 100%;
-    height: 740px;
+    height: ${props.isSPProfileDetail ? '400px' : '240px'};
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: ${props.isSPProfileDetail ? 'scroll' : 'hidden'};
 
     ${mediaQueryBreakpoints.small} {
       width: 140px;
@@ -40,6 +44,56 @@ export const styles = {
       &:hover {
         width: 100%;
       }
+    }
+  `,
+  openSPProfileDetailButton: () => css`
+    position: absolute;
+    right: 60px;
+    bottom: 22px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    ${mediaQueryBreakpoints.small} {
+      display: none;
+    }
+  `,
+  closeSPProfileDetailButton: () => css`
+    position: absolute;
+    right: 60px;
+    bottom: 22px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    ${mediaQueryBreakpoints.small} {
+      display: none;
+    }
+  `,
+  profileMenuButton: () => css`
+    position: absolute;
+    right: 24px;
+    bottom: 20px;
+
+    svg {
+      width: 30px;
+      height: 30px;
     }
   `,
 };
