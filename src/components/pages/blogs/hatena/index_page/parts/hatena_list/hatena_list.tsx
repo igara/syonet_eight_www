@@ -25,7 +25,9 @@ export const HatenaList: React.FC<Props> = () => {
         hatenaList.data.slice().map((hatena) => {
           return (
             <div key={hatena.sha}>
-              <Link href={`/blogs/hatena/${hatena.name}`}>{hatena.name}</Link>
+              <Link href={`/blogs/hatena/${hatena.name}`}>
+                <a>{hatena.name}</a>
+              </Link>
             </div>
           );
         })}

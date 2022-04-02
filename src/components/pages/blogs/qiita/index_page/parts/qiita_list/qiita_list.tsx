@@ -22,7 +22,9 @@ export const QiitaList: React.FC<Props> = () => {
         qiitaList.data.slice().map((qiita) => {
           return (
             <div key={qiita.sha}>
-              <Link href={`/blogs/qiita/${qiita.name}`}>{qiita.name}</Link>
+              <Link href={`/blogs/qiita/${qiita.name}`}>
+                <a>{qiita.name}</a>
+              </Link>
             </div>
           );
         })}

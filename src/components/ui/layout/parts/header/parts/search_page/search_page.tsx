@@ -90,15 +90,17 @@ export const SearchPage: React.FC<Props> = (props) => {
         {hits.map((hit) => {
           return (
             <div key={hit.objectID} css={Styles.styles.pageDetail()}>
-              <Link href={hit.nextLink} passHref>
-                <div css={Styles.styles.image()}>
-                  <ProgressImage src={hit.ogp} alt={hit.title}></ProgressImage>
-                </div>
+              <Link href={hit.nextLink}>
+                <a>
+                  <div css={Styles.styles.image()}>
+                    <ProgressImage src={hit.ogp} alt={hit.title}></ProgressImage>
+                  </div>
+                </a>
               </Link>
               <div css={Styles.styles.pageDetailTextArea()}>
                 <div css={Styles.styles.pageDetailTextAreaTitle()}>
-                  <Link href={hit.nextLink} passHref>
-                    {hit.title}
+                  <Link href={hit.nextLink}>
+                    <a>{hit.title}</a>
                   </Link>
                 </div>
                 <div css={Styles.styles.pageDetailTextAreaDescription()}>
@@ -167,46 +169,44 @@ export const SearchPage: React.FC<Props> = (props) => {
         onClick={Hooks.useOnClickSearchPageTextCallback(setDisplaySearchPageDialog)}
       />
 
-      {displaySearchPageDialog && (
-        <StandardDialog
-          isOpen={displaySearchPageDialog}
-          onClose={() => setDisplaySearchPageDialog(false)}
-          contentCSS={Styles.styles.dialogContent()}>
-          <Text
-            placeholder="ページ検索"
-            onChange={(e) => setSearchPageText(e.target.value)}
-            defaultValue={searchPageText}
+      <StandardDialog
+        isOpen={displaySearchPageDialog}
+        onClose={() => setDisplaySearchPageDialog(false)}
+        contentCSS={Styles.styles.dialogContent()}>
+        <Text
+          placeholder="ページ検索"
+          onChange={(e) => setSearchPageText(e.target.value)}
+          defaultValue={searchPageText}
+        />
+        <Select items={hitsPerPageItemsObject} onChange={onChangeSelect}></Select>
+
+        <InstantSearch searchClient={searchClient} indexName={indexName}>
+          <HitsPerPage defaultRefinement={hitsPerPageValue} items={hitsPerPageItems} />
+
+          <SearchBox defaultRefinement={searchPageText} />
+
+          <RefinementList
+            attribute="tags"
+            operator="and"
+            defaultRefinement={refinementCheckList}
           />
-          <Select items={hitsPerPageItemsObject} onChange={onChangeSelect}></Select>
 
-          <InstantSearch searchClient={searchClient} indexName={indexName}>
-            <HitsPerPage defaultRefinement={hitsPerPageValue} items={hitsPerPageItems} />
-
-            <SearchBox defaultRefinement={searchPageText} />
-
-            <RefinementList
-              attribute="tags"
-              operator="and"
-              defaultRefinement={refinementCheckList}
-            />
-
-            {isSearchResult ? (
-              <>
-                <Hits />
-                <Pagination defaultRefinement={paginationValue}></Pagination>
-              </>
-            ) : (
-              <ul>
-                <li>
-                  <Link href="/" passHref>
-                    トップページ
-                  </Link>
-                </li>
-              </ul>
-            )}
-          </InstantSearch>
-        </StandardDialog>
-      )}
+          {isSearchResult ? (
+            <>
+              <Hits />
+              <Pagination defaultRefinement={paginationValue}></Pagination>
+            </>
+          ) : (
+            <ul>
+              <li>
+                <Link href="/" passHref>
+                  <a>トップページ</a>
+                </Link>
+              </li>
+            </ul>
+          )}
+        </InstantSearch>
+      </StandardDialog>
     </>
   );
 };
