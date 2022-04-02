@@ -95,5 +95,11 @@ export const styles = {
       width: 30px;
       height: 30px;
     }
+
+    ${mediaQueryBreakpoints.small} {
+      position: fixed;
+      right: 24px;
+      bottom: 20px;
+    }
   `,
 };
