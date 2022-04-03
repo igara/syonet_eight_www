@@ -1,0 +1,50 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { BlogsZennArticleNamePage } from '../';
+import * as Variables from 'syonet_eight_variables';
+
+<Meta
+  title="www/pages/blogs/zenn/article/markdown_name_page/default"
+  component={BlogsQiitaNamePage}
+  decorators={[withMock]}
+/>
+
+# www/pages/blogs/zenn/article/markdown_name_page/default
+
+markdown_name_page の説明
+
+<Story
+  name="default"
+  args={{
+    ssr: {
+      zennArticleDetailData: 'zennArticleDetailData',
+      ogp: {
+        title: 'ogpTitle',
+        description: 'ogpDescription',
+        path: '/blogs/zenn/article/markdown_name',
+      },
+    },
+  }}
+  parameters={{
+    nextRouter: {
+      path: '/blogs/zenn/article/[markdown_name]',
+      asPath: '/blogs/zenn/article/markdown_name',
+      query: {
+        markdown_name: 'markdown_name',
+      },
+    },
+    mockData: [
+      {
+        url: Variables.backupQiitaDetailURI('markdown_name'),
+        method: 'GET',
+        status: 200,
+        response: null,
+      },
+    ],
+  }}></Story>
+
+<Source>
+  <BlogsZennArticleNamePage />
+</Source>
+
+<Props story="default" />

@@ -1,0 +1,35 @@
+import { Meta, Story, Source, Props } from '@storybook/addon-docs';
+import withMock from 'storybook-addon-mock';
+import { QiitaList } from '../';
+import * as Variables from 'syonet_eight_variables';
+
+<Meta
+  title="www/pages/blogs/qiita/index_page/parts/qiita_list/api_error"
+  component={QiitaList}
+  decorators={[withMock]}
+/>
+
+# www/pages/blogs/qiita/index_page/parts/qiita_list/api_error
+
+qiita_list の説明  
+API エラーの表示
+
+<Story
+  name="api_error"
+  args={{}}
+  parameters={{
+    mockData: [
+      {
+        url: Variables.backupQiitaListURI,
+        method: 'GET',
+        status: 500,
+        response: null,
+      },
+    ],
+  }}></Story>
+
+<Source>
+  <QiitaList />
+</Source>
+
+<Props story="api_error" />
