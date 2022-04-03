@@ -13,9 +13,9 @@ export const useSWRHatenaListFetch = () => {
 };
 
 export const useSWRSetHatenaList = (hatenaList?: HatenaList) => {
-  const swrQiitaListt = useSWR('USE_SWR_HATENA_LIST', null, {
+  const swrQiitaList = useSWR('USE_SWR_HATENA_LIST', null, {
     fallbackData: hatenaList ? hatenaList.slice().reverse() : [],
   });
 
-  return swrQiitaListt;
+  return swrQiitaList;
 };

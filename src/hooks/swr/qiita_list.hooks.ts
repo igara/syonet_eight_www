@@ -13,9 +13,9 @@ export const useSWRQiitaListFetch = () => {
 };
 
 export const useSWRSetQiitaList = (qiitaList?: QiitaList) => {
-  const swrQiitaListt = useSWR('USE_SWR_QIITA_LIST', null, {
+  const swrQiitaList = useSWR('USE_SWR_QIITA_LIST', null, {
     fallbackData: qiitaList ? qiitaList.slice().reverse() : [],
   });
 
-  return swrQiitaListt;
+  return swrQiitaList;
 };
